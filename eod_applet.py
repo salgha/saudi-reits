@@ -28,4 +28,4 @@ if df_eod.iloc[-1:].index.values not in df.index.values:
         
     df = pd.concat([df, df_eod])
     
-    df.to_csv('data/pdata.csv', index=False)
+    df.to_csv('data/pdata.csv')
