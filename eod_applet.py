@@ -7,7 +7,7 @@ def get_eod_price(ticker):
     df = yf.Ticker(t+'.SR').history(period='1d', interval='1d')['Close'].reset_index()
     df['Date'] = pd.to_datetime(df['Date']).dt.floor('d').dt.tz_localize(None)
     df = df.rename(columns={'Date':'date', 'Close':ticker}).set_index('date')
-    return df.round(2)
+    return df
 
 tickers = ['4330', '4331', '4332', 
            '4333', '4334', '4335', 
@@ -28,4 +28,4 @@ if df_eod.iloc[-1:].index.values not in df.index.values:
         
     df = pd.concat([df, df_eod])
     
-    df.to_csv('data/pdata.csv')
+    df.round(2).to_csv('data/pdata.csv')
