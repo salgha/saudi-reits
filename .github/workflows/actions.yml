@@ -2,7 +2,7 @@ name: run eod_applet.py
 
 on:
   schedule:
-    - cron: '*/5 * * * *' #'30 15 * * 0-4'
+    - cron: '30 13 * * 0-4'
     
 jobs:
   build:
